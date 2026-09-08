@@ -59,8 +59,18 @@
     <p class="hero-date reveal" style="--d:2">sábado 21 de noviembre de 2026 · 11 a 19hs</p>
   </header>
 
+  <!-- RSVP -->
+  <section class="card rsvp-card reveal" style="--d:3" id="rsvp-section">
+    <div class="tape tape-side-right" aria-hidden="true"></div>
+    <h2 class="section-title">confirmá</h2>
+    <div id="rsvp-root">
+      <!-- app.js inyecta acá el estado: loading / form / already-responded / invalid / no-token -->
+      <p class="muted">cargando...</p>
+    </div>
+  </section>
+
   <!-- INFO DEL EVENTO -->
-  <section class="card info-card reveal" style="--d:3" id="info">
+  <section class="card info-card reveal" style="--d:4" id="info">
     <div class="tape tape-side" aria-hidden="true"></div>
 
     <h2 class="section-title">la posta</h2>
@@ -107,16 +117,6 @@
         width="100%" height="152" frameborder="0" allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy" title="playlist del cumple"></iframe>
-    </div>
-  </section>
-
-  <!-- RSVP -->
-  <section class="card rsvp-card reveal" style="--d:4" id="rsvp-section">
-    <div class="tape tape-side-right" aria-hidden="true"></div>
-    <h2 class="section-title">confirmá</h2>
-    <div id="rsvp-root">
-      <!-- app.js inyecta acá el estado: loading / form / already-responded / invalid / no-token -->
-      <p class="muted">cargando...</p>
     </div>
   </section>
 
