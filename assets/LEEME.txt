@@ -1,0 +1,5 @@
+Colocá acá invitation-template.png: el diseño de la invitación (Canva o similar)
+que usa scripts/generate-invitations.mjs como fondo de cada página del PDF.
+
+Ajustá las coordenadas de invitation-config.json (raíz del proyecto) según
+dónde quieras que caigan el QR, el nombre y el token en tu template.

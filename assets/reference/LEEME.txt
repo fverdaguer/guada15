@@ -1,0 +1,2 @@
+Poné acá capturas de las invitaciones que diseñó Guada (no van al sitio publicado,
+son solo referencia visual para ajustar el CSS de public/style.css si hace falta).
