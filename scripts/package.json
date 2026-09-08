@@ -1,0 +1,16 @@
+{
+  "name": "scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tokens": "node generate-tokens.mjs",
+    "qrs": "node generate-qrs.mjs",
+    "invitations": "node generate-invitations.mjs",
+    "upload-kv": "node upload-to-kv.mjs",
+    "generate": "node generate-tokens.mjs && node generate-qrs.mjs && node generate-invitations.mjs"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4",
+    "pdf-lib": "^1.17.1"
+  }
+}

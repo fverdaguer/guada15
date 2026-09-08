@@ -1,0 +1,7 @@
+Colocá acá estos 3 archivos (no se generan, los tenés vos):
+
+- bieber-green.jpg   (verde con lunares, flota en la esquina de la página)
+- bieber-tongue.png  (sacando lengua, aparece al confirmar)
+- bieber-yellow.jpg  (rubio triste, aparece cuando alguien no puede venir)
+
+El HTML/CSS ya están preparados para usarlos tal cual con esos nombres.

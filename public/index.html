@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GUADA 15</title>
+<meta name="description" content="Guada cumple 15. Sin vestido, sin vals, con pileta. Confirmá tu asistencia acá.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Caveat:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- fondo decorativo fijo -->
+<div class="bg-deco" aria-hidden="true">
+  <svg class="deco star star-1 spin-slow" viewBox="0 0 100 100"><use href="#svg-star"/></svg>
+  <svg class="deco star star-2 spin-slow-rev" viewBox="0 0 100 100"><use href="#svg-star-red"/></svg>
+  <svg class="deco star star-3 spin-slow" viewBox="0 0 100 100"><use href="#svg-star"/></svg>
+  <svg class="deco blob blob-1" viewBox="0 0 200 200"><use href="#svg-blob-coral"/></svg>
+  <svg class="deco blob blob-2" viewBox="0 0 200 200"><use href="#svg-blob-aqua"/></svg>
+  <svg class="deco spiral spiral-1 spin-slow" viewBox="0 0 100 100"><use href="#svg-spiral"/></svg>
+</div>
+
+<!-- sprite de SVGs reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="svg-star">
+      <path d="M50 2 L61 38 L98 38 L68 60 L79 96 L50 74 L21 96 L32 60 L2 38 L39 38 Z" fill="#0F0F0F"/>
+    </g>
+    <g id="svg-star-red">
+      <path d="M50 2 L61 38 L98 38 L68 60 L79 96 L50 74 L21 96 L32 60 L2 38 L39 38 Z" fill="#E93B7A"/>
+    </g>
+    <g id="svg-blob-coral">
+      <path fill="#FF6B4A" d="M45.6,-58.3C58.4,-49.6,67.6,-34.6,71.4,-18.1C75.2,-1.6,73.6,16.4,65.5,30.7C57.4,45,42.8,55.6,26.6,62.4C10.4,69.2,-7.4,72.2,-23.7,67.7C-40,63.2,-54.8,51.2,-63.8,35.8C-72.8,20.4,-76,1.6,-71.8,-15.1C-67.6,-31.8,-56,-46.4,-41.8,-55.2C-27.6,-64,-13.8,-67,1.6,-69.2C17,-71.4,32.8,-67,45.6,-58.3Z" transform="translate(100 100)"/>
+    </g>
+    <g id="svg-blob-aqua">
+      <path fill="#4AC5D4" d="M42.1,-54.7C53.4,-46.8,60.3,-31.9,63.6,-16.2C66.9,-0.5,66.6,16,59.8,29.4C53,42.8,39.7,53.1,24.8,59.6C9.9,66.1,-6.6,68.8,-22.1,64.8C-37.6,60.8,-52.1,50.1,-60.4,35.7C-68.7,21.3,-70.8,3.2,-66.8,-12.8C-62.8,-28.8,-52.7,-42.7,-39.7,-50.6C-26.7,-58.5,-13.4,-60.4,1.5,-62.4C16.3,-64.4,32.7,-62.5,42.1,-54.7Z" transform="translate(100 100)"/>
+    </g>
+    <g id="svg-spiral">
+      <path fill="none" stroke="#0F0F0F" stroke-width="4" d="M50,50 m0,0 a2,2 0 1,1 4,0 a6,6 0 1,1 -8,0 a10,10 0 1,1 12,0 a14,14 0 1,1 -16,0 a18,18 0 1,1 20,0 a22,22 0 1,1 -24,0"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- bieber flotante permanente -->
+<img src="/assets/bieber-green.jpg" alt="" aria-hidden="true" class="bieber-float wobble" id="bieber-corner">
+
+<main class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="tape tape-top-left" aria-hidden="true"></div>
+    <div class="tape tape-top-right" aria-hidden="true"></div>
+    <h1 class="hero-title reveal" style="--d:0">GUADA 15</h1>
+    <p class="hero-subtitle reveal" style="--d:1">sin vestido, sin vals,<br>con pileta</p>
+    <p class="hero-date reveal" style="--d:2">sábado 21 de noviembre de 2026 · 11 a 19hs</p>
+  </header>
+
+  <!-- INFO DEL EVENTO -->
+  <section class="card info-card reveal" style="--d:3" id="info">
+    <div class="tape tape-side" aria-hidden="true"></div>
+
+    <h2 class="section-title">la posta</h2>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="info-icon">📅</span>
+        <div>
+          <strong>cuándo</strong>
+          <p>sábado 21 de noviembre de 2026<br>11:00 a 19:00</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <span class="info-icon">📍</span>
+        <div>
+          <strong>dónde</strong>
+          <p>Quinta "La Mala"<br>Juan Díaz de Solís 2765, Hurlingham</p>
+          <a class="btn btn-small btn-maps" id="maps-link" href="#" target="_blank" rel="noopener">cómo llegar 🗺️</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">el timeline</h3>
+    <ul class="timeline">
+      <li><span class="timeline-time">11:00 – 17:00</span> pileta y hamburguesas 🍔🏊</li>
+      <li><span class="timeline-time">17:00 – 19:00</span> karaoke y baile 🎤💃</li>
+    </ul>
+
+    <h3 class="section-subtitle">qué traer</h3>
+    <ul class="checklist">
+      <li>🩴 toalla</li>
+      <li>🩱 malla</li>
+      <li>👡 sandalias</li>
+      <li>👕 muda de ropa cómoda</li>
+      <li>🧴 protector solar</li>
+      <li>🦟 repelente (OFF)</li>
+    </ul>
+
+    <h3 class="section-subtitle">la playlist</h3>
+    <div class="spotify-wrap">
+      <!-- SPOTIFY_PLAYLIST_URL: reemplazar src por el embed real de la playlist de Guada -->
+      <iframe id="spotify-embed"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+        width="100%" height="152" frameborder="0" allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy" title="playlist del cumple"></iframe>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="card rsvp-card reveal" style="--d:4" id="rsvp-section">
+    <div class="tape tape-side-right" aria-hidden="true"></div>
+    <h2 class="section-title">confirmá</h2>
+    <div id="rsvp-root">
+      <!-- app.js inyecta acá el estado: loading / form / already-responded / invalid / no-token -->
+      <p class="muted">cargando...</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>hecho con 💙 para guada · no compartas tu link, es solo tuyo</p>
+  </footer>
+
+</main>
+
+<!-- overlays de easter eggs -->
+<div class="overlay-eggs" aria-hidden="true">
+  <div class="egg egg-thanks" id="egg-thanks">
+    <img src="/assets/bieber-tongue.png" alt="">
+    <p class="egg-text">GRACIAS!!!</p>
+  </div>
+  <div class="egg egg-sad" id="egg-sad">
+    <img src="/assets/bieber-yellow.jpg" alt="">
+    <p class="egg-text-sad">no puede ser 😔</p>
+  </div>
+</div>
+
+<div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>

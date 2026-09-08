@@ -1,0 +1,6 @@
+{
+  "pageSize": "A6",
+  "qr": { "x": 55, "y": 40, "width": 90, "height": 90 },
+  "nombre": { "x": 20, "y": 150, "fontSize": 16, "color": "#0F0F0F" },
+  "token": { "x": 55, "y": 28, "fontSize": 9, "color": "#0F0F0F" }
+}

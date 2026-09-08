@@ -1,0 +1,25 @@
+{
+  "name": "guada15",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "generate": "pnpm --filter scripts run generate",
+    "tokens": "pnpm --filter scripts run tokens",
+    "qrs": "pnpm --filter scripts run qrs",
+    "invitations": "pnpm --filter scripts run invitations",
+    "upload-kv": "pnpm --filter scripts run upload-kv",
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0",
+    "@cloudflare/workers-types": "^5.0.0",
+    "typescript": "^5.6.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}
