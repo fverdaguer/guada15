@@ -41,12 +41,14 @@ async function main() {
   await writeFile(BULK_JSON, JSON.stringify(bulkEntries, null, 2), 'utf-8');
   console.log(`✔ ${BULK_JSON} generado (${bulkEntries.length} invitades)`);
 
+  // con shell:true (necesario en Windows) los args se unen en un solo
+  // string de shell, así que las rutas con espacios necesitan comillas.
   const args = [
     'wrangler',
     'kv',
     'bulk',
     'put',
-    BULK_JSON,
+    `"${BULK_JSON}"`,
     '--binding',
     'RSVP_KV',
     ...(isLocal ? ['--local'] : ['--remote']),
@@ -55,10 +57,13 @@ async function main() {
   console.log(`\n> npx ${args.join(' ')}\n`);
 
   try {
-    execFileSync('npx', args, { stdio: 'inherit', cwd: ROOT });
+    // shell: true es necesario en Windows, donde `npx` es en realidad `npx.cmd`
+    // y execFileSync no lo resuelve sin pasar por una shell.
+    execFileSync('npx', args, { stdio: 'inherit', cwd: ROOT, shell: true });
     console.log(`\n✔ ${bulkEntries.length} invitades subides a la KV ${isLocal ? 'local' : 'de producción'}`);
   } catch (err) {
-    console.error('\n✗ falló wrangler kv bulk put. Revisá que wrangler.toml tenga el namespace ID correcto.');
+    console.error(`\n✗ falló wrangler kv bulk put: ${err.message}`);
+    console.error('Revisá que wrangler.toml tenga el namespace ID correcto.');
     process.exit(1);
   }
 }
