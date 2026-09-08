@@ -7,4 +7,4 @@ pages_build_output_dir = "public"
 # y reemplazá el id de abajo por el que te devuelva ese comando.
 [[kv_namespaces]]
 binding = "RSVP_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "a34937dfdc6a4fd29011a9cc9901b1fa"
