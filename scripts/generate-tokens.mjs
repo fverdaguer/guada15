@@ -67,14 +67,23 @@ function csvEscape(value) {
   return v;
 }
 
+// los emojis van como escapes \u{...} (no pegados literalmente) para que el
+// mensaje no dependa de que este archivo se guarde/transporte en UTF-8 limpio
+// en todos los pasos (git en Windows, editores, etc. pueden corromperlos).
+const EMOJI_PARTY = '\u{1F389}'; // 🎉
+const EMOJI_CALENDAR = '\u{1F4C5}'; // 📅
+const EMOJI_PIN = '\u{1F4CD}'; // 📍
+const EMOJI_CLOCK = '\u{23F0}'; // ⏰
+const EMOJI_POINT_RIGHT = '\u{1F449}'; // 👉
+
 function buildWaMessage(nombre, url) {
-  return `hola ${nombre}!! 🎉 guada cumple 15 y te invita a su cumple
+  return `hola ${nombre}!! ${EMOJI_PARTY} guada cumple 15 y te invita a su cumple
 
-📅 sábado 21 de noviembre
-📍 quinta la mala, hurlingham
-⏰ 11 a 19hs
+${EMOJI_CALENDAR} sábado 21 de noviembre
+${EMOJI_PIN} quinta la mala, hurlingham
+${EMOJI_CLOCK} 11 a 19hs
 
-confirmá si venís acá 👉 ${url}
+confirmá si venís acá ${EMOJI_POINT_RIGHT} ${url}
 
 (el link es solo para vos, no lo compartas)`;
 }
