@@ -153,13 +153,23 @@ Reemplazá el `src` del iframe con id `spotify-embed` en `public/index.html` (bu
 
 ---
 
-## 4. Cómo descargar la lista de confirmados
+## 4. Ver quién confirmó
+
+### Dashboard visual
+
+```
+https://tu-dominio.pages.dev/admin
+```
+
+Te pide la `ADMIN_KEY` una sola vez (queda guardada en el `localStorage` de tu navegador, nunca en el código) y muestra: totales de confirmados/no vienen/pendientes, una tabla filtrable por estado y buscable por nombre, restricciones alimentarias y mensajes de cada invitade, con auto-refresh cada 30s. En el celu la tabla pasa a cards. Tiene un botón "exportar CSV" que baja lo mismo que el endpoint de abajo.
+
+### CSV directo
 
 ```
 https://tu-dominio.pages.dev/api/admin?key=TU_ADMIN_KEY
 ```
 
-Descarga un CSV con: `nombre, token, estado, timestamp, restricciones, mensaje`.
+Descarga un CSV con: `nombre, token, estado, timestamp, restricciones, mensaje`. También existe `GET /api/admin.json?key=TU_ADMIN_KEY` con el mismo contenido en JSON — es lo que consume el dashboard de `/admin`.
 
 ---
 
@@ -190,12 +200,16 @@ guada15/
 │   ├── index.html
 │   ├── style.css
 │   ├── app.js
+│   ├── admin.html           # dashboard visual en /admin
+│   ├── admin.css
+│   ├── admin.js
 │   └── assets/
 ├── functions/
 │   ├── i/[token].ts         # sirve la SPA en /i/:token (el token se lee client-side)
 │   └── api/
 │       ├── rsvp/[token].ts  # GET/POST /api/rsvp/:token
-│       └── admin.ts         # GET /api/admin
+│       ├── admin.ts         # GET /api/admin (CSV)
+│       └── admin.json.ts    # GET /api/admin.json (JSON, lo consume /admin)
 ├── scripts/
 │   ├── generate-tokens.mjs
 │   ├── generate-qrs.mjs
