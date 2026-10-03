@@ -173,7 +173,17 @@ Descarga un CSV con: `nombre, token, estado, timestamp, restricciones, mensaje`.
 
 ---
 
-## 5. Troubleshooting
+## 5. Mandar las invitaciones por WhatsApp
+
+```
+https://tu-dominio.pages.dev/enviar
+```
+
+Misma `ADMIN_KEY` que `/admin` (si ya entraste a uno, el otro no te la vuelve a pedir). Lista a todes les invitades con un botón **"enviar WhatsApp"** por cada une que tenga teléfono cargado — abre WhatsApp con el mensaje de invitación ya escrito, listo para mandar. Para quien no tenga teléfono en `input/guests.csv`, en vez del botón aparece **"copiar link"** (copia la URL de su invitación para pegarla donde quieras). Tiene los mismos filtros por estado y buscador que `/admin`, más un check **"marcar"** por fila para llevar la cuenta de a quién ya le mandaste el link — ese marcado queda solo en tu navegador (no se sincroniza entre dispositivos ni se guarda en el servidor).
+
+---
+
+## 6. Troubleshooting
 
 **Un QR no escanea:** los QR se generan con corrección de errores nivel H (30%) a 500x500px mínimo, deberían andar bien impresos incluso arrugados. Si aun así falla, el token en texto plano queda como fallback debajo del QR en la invitación — se puede tipear a mano en `/i/{token}`.
 
@@ -203,6 +213,9 @@ guada15/
 │   ├── admin.html           # dashboard visual en /admin
 │   ├── admin.css
 │   ├── admin.js
+│   ├── enviar.html          # lista para mandar invitaciones por WhatsApp en /enviar
+│   ├── enviar.css
+│   ├── enviar.js
 │   └── assets/
 ├── functions/
 │   ├── i/[token].ts         # sirve la SPA en /i/:token (el token se lee client-side)

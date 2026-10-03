@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>enviar · guada15</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/admin.css">
+<link rel="stylesheet" href="/enviar.css">
+</head>
+<body>
+
+<!-- pantalla de acceso (misma key que /admin) -->
+<div id="gate" class="gate">
+  <form id="gate-form" class="gate-box">
+    <h1 class="gate-title">enviar · guada15</h1>
+    <p class="gate-sub">ingresá la admin key para mandar invitaciones</p>
+    <input type="password" id="gate-input" placeholder="ADMIN_KEY" autocomplete="off" autofocus>
+    <button type="submit" class="btn btn-primary">entrar</button>
+    <p class="gate-error" id="gate-error" hidden></p>
+  </form>
+</div>
+
+<!-- lista para enviar -->
+<div id="dashboard" class="dashboard" hidden>
+
+  <header class="topbar">
+    <h1 class="topbar-title">guada15 <span>· enviar invitaciones</span></h1>
+    <div class="topbar-actions">
+      <a class="btn btn-ghost" href="/admin">ver admin</a>
+      <button type="button" class="btn btn-ghost" id="btn-refresh">↻ refrescar</button>
+      <button type="button" class="btn btn-ghost btn-logout" id="btn-logout">salir</button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="controls">
+      <div class="filters" id="filters" role="group" aria-label="filtrar por estado">
+        <button type="button" class="filter-btn active" data-filter="all">todos</button>
+        <button type="button" class="filter-btn" data-filter="pending">pendientes</button>
+        <button type="button" class="filter-btn" data-filter="confirmed">confirmados</button>
+        <button type="button" class="filter-btn" data-filter="declined">no vienen</button>
+      </div>
+      <label class="hide-sent-toggle">
+        <input type="checkbox" id="hide-sent">
+        ocultar ya marcados como enviados
+      </label>
+      <input type="search" id="search" class="search-input" placeholder="buscar por nombre...">
+    </section>
+
+    <section class="table-wrap">
+      <table class="admin-table" id="table">
+        <thead>
+          <tr>
+            <th>nombre</th>
+            <th>estado</th>
+            <th>teléfono</th>
+            <th>enviar</th>
+            <th>enviado</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+      <p class="empty-state" id="empty-state" hidden>no hay invitades que coincidan con el filtro/búsqueda.</p>
+      <p class="loading-state" id="loading-state">cargando...</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="/enviar.js"></script>
+</body>
+</html>

@@ -46,6 +46,7 @@ export function csvEscape(value: string): string {
 export interface AdminRow {
   nombre: string;
   token: string;
+  telefono: string | null;
   status: InviteeRecord['status'];
   timestamp: string | null;
   restricciones: Restriccion[];
@@ -66,6 +67,7 @@ export async function listInviteeRows(kv: KVNamespace): Promise<AdminRow[]> {
       rows.push({
         nombre: record.nombre,
         token: entry.name.slice('invitee:'.length),
+        telefono: record.telefono ?? null,
         status: record.status,
         timestamp: record.respuesta?.timestamp ?? null,
         restricciones: record.respuesta?.restricciones ?? [],
