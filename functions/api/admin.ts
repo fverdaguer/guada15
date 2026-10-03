@@ -8,7 +8,7 @@ const ESTADO_LABEL: Record<AdminRow['status'], string> = {
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   if (!isAdminAuthorized(context.request, context.env.ADMIN_KEY)) {
-    return new Response('unauthorized', { status: 401 });
+    return new Response('unauthorized', { status: 401, headers: { 'Cache-Control': 'no-store' } });
   }
 
   const invitees = await listInviteeRows(context.env.RSVP_KV);
@@ -40,6 +40,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     headers: {
       'Content-Type': 'text/csv; charset=utf-8',
       'Content-Disposition': 'attachment; filename="confirmados.csv"',
+      'Cache-Control': 'no-store',
     },
   });
 };
