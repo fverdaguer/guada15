@@ -39,3 +39,44 @@ export function csvEscape(value: string): string {
   }
   return v;
 }
+
+export interface AdminRow {
+  nombre: string;
+  token: string;
+  status: InviteeRecord['status'];
+  timestamp: string | null;
+  restricciones: Restriccion[];
+  restriccionDetalle: string | null;
+  mensaje: string | null;
+}
+
+export async function listInviteeRows(kv: KVNamespace): Promise<AdminRow[]> {
+  const rows: AdminRow[] = [];
+
+  let cursor: string | undefined;
+  do {
+    const list = await kv.list({ prefix: 'invitee:', cursor });
+    for (const entry of list.keys) {
+      const raw = await kv.get(entry.name);
+      if (!raw) continue;
+      const record: InviteeRecord = JSON.parse(raw);
+      rows.push({
+        nombre: record.nombre,
+        token: entry.name.slice('invitee:'.length),
+        status: record.status,
+        timestamp: record.respuesta?.timestamp ?? null,
+        restricciones: record.respuesta?.restricciones ?? [],
+        restriccionDetalle: record.respuesta?.restriccionDetalle ?? null,
+        mensaje: record.respuesta?.mensaje ?? null,
+      });
+    }
+    cursor = list.list_complete ? undefined : list.cursor;
+  } while (cursor);
+
+  return rows;
+}
+
+export function isAdminAuthorized(request: Request, adminKey: string): boolean {
+  const key = new URL(request.url).searchParams.get('key');
+  return !!key && key === adminKey;
+}

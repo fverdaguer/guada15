@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>admin · guada15</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+
+<!-- pantalla de acceso -->
+<div id="gate" class="gate">
+  <form id="gate-form" class="gate-box">
+    <h1 class="gate-title">admin · guada15</h1>
+    <p class="gate-sub">ingresá la admin key para ver las confirmaciones</p>
+    <input type="password" id="gate-input" placeholder="ADMIN_KEY" autocomplete="off" autofocus>
+    <button type="submit" class="btn btn-primary">entrar</button>
+    <p class="gate-error" id="gate-error" hidden></p>
+  </form>
+</div>
+
+<!-- dashboard -->
+<div id="dashboard" class="dashboard" hidden>
+
+  <header class="topbar">
+    <h1 class="topbar-title">guada15 <span>· admin</span></h1>
+    <div class="topbar-actions">
+      <span class="updated-at" id="updated-at"></span>
+      <button type="button" class="btn btn-ghost" id="btn-refresh">↻ refrescar</button>
+      <a class="btn btn-ghost" id="btn-export" href="#">⬇ exportar CSV</a>
+      <button type="button" class="btn btn-ghost btn-logout" id="btn-logout">salir</button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="stats" id="stats">
+      <div class="stat-card stat-confirmed">
+        <span class="stat-number" id="stat-confirmed">–</span>
+        <span class="stat-label">confirmados</span>
+      </div>
+      <div class="stat-card stat-declined">
+        <span class="stat-number" id="stat-declined">–</span>
+        <span class="stat-label">no vienen</span>
+      </div>
+      <div class="stat-card stat-pending">
+        <span class="stat-number" id="stat-pending">–</span>
+        <span class="stat-label">pendientes</span>
+      </div>
+      <div class="stat-card stat-total">
+        <span class="stat-number" id="stat-total">–</span>
+        <span class="stat-label">total</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="filters" id="filters" role="group" aria-label="filtrar por estado">
+        <button type="button" class="filter-btn active" data-filter="all">todos</button>
+        <button type="button" class="filter-btn" data-filter="confirmed">confirmados</button>
+        <button type="button" class="filter-btn" data-filter="declined">no vienen</button>
+        <button type="button" class="filter-btn" data-filter="pending">pendientes</button>
+      </div>
+      <input type="search" id="search" class="search-input" placeholder="buscar por nombre...">
+    </section>
+
+    <section class="table-wrap">
+      <table class="admin-table" id="table">
+        <thead>
+          <tr>
+            <th>nombre</th>
+            <th>estado</th>
+            <th>respondió</th>
+            <th>restricciones</th>
+            <th>mensaje</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+      <p class="empty-state" id="empty-state" hidden>no hay invitades que coincidan con el filtro/búsqueda.</p>
+      <p class="loading-state" id="loading-state">cargando...</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="/admin.js"></script>
+</body>
+</html>
